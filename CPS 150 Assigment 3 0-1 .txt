@@ -1,0 +1,187 @@
+    static final Scanner cin = new Scanner(System.in);
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // declare double variable to hold input data
+		double inputAmmount
+
+        // declare int variables to hold whole dollars and cents
+		int wholeDollars, wholeCents;
+		
+        // Output identification
+        out.print("CPS 150 Assignment 3 by Solomon West\n\n");
+
+        // Describe the program's purpose on output
+        out.print("This program will help you make the change due to the customer\n");
+		
+        // dialog with user
+		out.print("Enter change due (Dollars.cents): ");
+		inputAmmount = cin.nextDouble();
+		out.print("Make change of"+" $"+changedue+" by:\n");
+		
+        // spacing to separate input data and output results
+        out.println();
+
+        // calculate numbers of dollars and cents in the change
+		changeAmmount = 100 * inputAmmount;
+		int dollarsDue, centsDue;
+
+        // Result heading
+		dollarsDue = changeAmmount/100;
+		centsDue = changeAmmount%100;
+		
+	// call the methods showDollars and showCents
+		showDollars(dollarsDue);
+		showCents(centsDue);
+
+        // Sign off
+        out.print("\n Assignment 3 complete \n\n");
+    } // end main
+    
+    static void showDollars(int dollars) {
+        // declare variables to holds the numbers 
+		int twenties, tens, fives, ones;
+        // of bills of different denominations (int)
+		// calculate numbers of various bills needed
+		// find the ammount of 20's which are Jacksons
+			// if number is divisable by 20 then there is a 20
+			// else there is no 20
+			// subtact the ammount of 20's found from the total of dollars
+		if (dollars>=20)
+			twenties = dollars/20;
+		else twenties = 0;
+		dollars= dollars-(twenties*20);
+		
+		// find the ammount of 10's which are Jacksons
+			// if number is divisable by 10 then there is a 10
+			// else there is no 10
+			// subtact the ammount of 10's found from the total of dollars
+		if (dollars>=10)
+			tens = dollars/10;
+		else tens = 0;
+		dollars= dollars-(tens * 10);
+		
+
+		// find the ammount of 5's which are Jacksons
+			// if number is divisable by 5 then there is a 5
+			// else there is no 5
+			// subtact the ammount of 5's found from the total of dollars
+		if (dollars>=5)
+			fives = dollars/5;
+		else fives = 0;
+		dollars= dollars-(fives * 5);
+		
+		// find the ammount of 1's which are Jacksons
+			// if number is divisable by 1 then there is a 1
+			// else there is no 1
+			// subtact the ammount of 1's found from the total of dollars			
+		if (dollars>=1)
+			ones = dollars/1;
+		else ones = 0;
+		dollars= dollars-(ones*1);
+
+		int quaters, dimes, nickels, penneys = 0;
+	// call method showNumberAndName for each bill type
+		showNumberAndName(twenties,tens,fives, ones, quaters, dimes, nickels, penneys); 
+		
+    } // end showDollars
+    
+    static void showCents(int cents) {
+        // declare variables to holds the numbers 
+		int quaters, dimes, nickels, penneys;
+        // of coins of different denominations (int)
+		// calculate numbers of coins needed
+		// find the ammount of quaters
+			// if number is divisable by 25 then there is a 25
+			// else there is no 25
+			// subtact the ammount of 25 cents found from the total of cents
+		if (cents>=25)
+			quaters = cents/25;
+		else quaters = 0;
+		cents = cents -(quaters * 25);
+		
+		// find the ammount of dimes
+			// if number is divisable by 10 then there is a 10
+			// else there is no 10
+			// subtact the ammount of 10 cents found from the total of cents
+		if (cents>=10)
+			dimes = cents/10;
+		else dimes = 0;
+		cents = cents -(dimes * 10);		
+
+		// find the ammount of nickels
+			// if number is divisable by 5 then there is a 5
+			// else there is no 5
+			// subtact the ammount of 5 cents found from the total of cents
+		if (cents>=5)
+			nickels = cents/5;
+		else nickels = 0;
+		cents = cents -(nickels * 5);
+		
+		// find the ammount of penneys
+			// if number is divisable by 1 then there is a 1 cent
+			// else there is no 1
+			// subtact the ammount of 1 cents found from the total of cents
+		if (cents>=1)
+			penneys = cents/1;
+		else penneys = 0;
+		cents = cents -(penneys * 1);
+
+		int twenties, tens, fives, ones = 0;
+		
+	// call method showNumberAndName for each bill type
+		showNumberAndName(twenties,tens,fives, ones, quaters, dimes, nickels, penneys); 
+		
+    } // end showCents
+
+    static void showNumberAndName(int twenties, int tens, int fives, int ones, int quaters, int dimes, int nickels, int penneys) {
+        // print number and name (use plural form if needed)
+	// only if number is > 0
+	if(twenties==1)
+        out.println(twenties +" Jackson");
+	if(twenties>1)
+        out.println(twenties+" Jacksons");
+    if(tens==1)
+        out.println(tens +" Hamilton");
+    if(tens >1)
+        out.println(tens+" Hamiltons");
+    if(fives==1)
+		out.println(fives+" Lincoln");
+    if(fives>1)
+        out.println(fives+" Lincolns");
+    if(ones==1)
+		out.println(ones+" Washington");
+    if(ones>1)
+        out.println(ones+" Washingtons");
+    if(quaters==1)
+        out.println(quaters+" Quarter");
+    if(quaters>1)
+        out.println(quaters+" Quaters");
+    if(dimes==1)
+        out.println(dimes+" Dime");
+    if(dimes>1)
+        out.println(dimes+" Dimes");
+    if(nickels==1)
+        out.println(nickels+" Nickel");
+    if(nickels>1)
+        out.println(nickels+" Nickels");
+    if(penneys==1)
+        out.println(penneys+" Penny");
+    if(penneys>1)
+        out.println(penneys+" Pennies");
+	
+    } // end showNumberAndName
+
+    static String plural(String name) {
+	// stub (to avoid compiler complaints)
+	return name;
+    } // end plural
+
+    // utility method getDouble
+    static double getDouble(String prompt) {
+        out.print(prompt);
+        return cin.nextDouble();
+	}
+} // end method
